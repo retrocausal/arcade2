@@ -34,8 +34,8 @@ document.addEventListener(
           try {
             const { cols, rows } = data;
             if (cols && rows) {
-              if (cols > 10 || rows > 10) {
-                throw new Error("please enter a number within 10");
+              if (cols > 11 || rows > 11 || cols < 5 || rows < 5) {
+                throw new Error("please enter a number between 5 and 11");
               }
             } else {
               throw new Error("Invalid input");

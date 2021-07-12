@@ -19,7 +19,7 @@ const Game = (function ArcadeGame() {
     set lost(bool) {
       if (bool === true) {
         this.lives--;
-        if (this.lives) {
+        if (this.lives > 0) {
           this.protagonist.slot = { row: 0, col: 0 };
           this.protagonist.interval = 1000;
           this.reset();
@@ -54,8 +54,7 @@ const Game = (function ArcadeGame() {
       this.lives = 3;
     },
     start() {
-      const protagonistAt = this.protagonist.slot;
-      const { row, col } = protagonistAt;
+      const { row, col } = this.protagonist.slot;
       this.unavailableSlots = [
         `${row + 1}-${col}`,
         `${row + 2}-${col}`,
@@ -67,9 +66,9 @@ const Game = (function ArcadeGame() {
 
       this.food = false;
       this.enemies = [];
+      this.protagonist.render();
       this.addMushroom();
       this.makeEnemies();
-      this.protagonist.render();
       this.protagonist.play();
     },
 

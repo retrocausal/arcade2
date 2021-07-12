@@ -3,10 +3,10 @@ class Mushroom {
     this.avatar = "images/mushroom.png";
     this.slot = slot;
     this.slot.occupy(this.avatar);
-    this.slot.isFood = true;
+    this.slot.hasFood = true;
   }
   vanish() {
-    this.slot.isFood = false;
+    this.slot.hasFood = false;
     this.slot.vacate();
   }
 }

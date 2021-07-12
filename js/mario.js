@@ -11,18 +11,9 @@ class Mario {
     this.interval = 1000;
   }
   render() {
-    if (this.home) {
-      this.home.vacate();
-    }
+    if (this.home) this.home.vacate();
     this.home = Game.getSlot(this.slot);
-    if (this.home.isEnemy === false) {
-      this.home.occupy(this.avatar);
-      if (this.home.isFood) {
-        this.won = true;
-      }
-    } else {
-      this.lost = true;
-    }
+    this.home.occupy(this.avatar);
   }
   play() {
     this.won = false;
@@ -90,6 +81,13 @@ class Mario {
         break;
     }
     this.render();
+    if (this.home.hasEnemy) {
+      this.lost = true;
+    } else {
+      if (this.home.hasFood) {
+        this.won = true;
+      }
+    }
   }
 
   animate() {
@@ -107,12 +105,10 @@ class Mario {
         return this.animate();
       });
     };
-    if (this.won) {
+    if (this.won || this.lost) {
       this.anFrame = window.cancelAnimationFrame(this.anFrame);
-      Game.won = true;
-    } else if (this.lost) {
-      this.anFrame = window.cancelAnimationFrame(this.anFrame);
-      Game.lost = true;
+      const finish = this.won ? "won" : "lost";
+      Game[finish] = true;
     } else return frame();
   }
 }

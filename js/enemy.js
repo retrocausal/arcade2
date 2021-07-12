@@ -3,10 +3,10 @@ class Enemy {
     this.avatar = "images/enemy-bug.png";
     this.slot = slot;
     this.slot.occupy(this.avatar);
-    this.slot.isEnemy = true;
+    this.slot.hasEnemy = true;
   }
   vanish() {
-    this.slot.isEnemy = false;
+    this.slot.hasEnemy = false;
     this.slot.vacate();
   }
 }
