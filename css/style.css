@@ -1,0 +1,140 @@
+* {
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  font-size: medium;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+main {
+  width: 75%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+aside {
+  width: 25%;
+  height: 100%;
+}
+#game {
+  min-width: 100%;
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  transition: opacity 3.2s linear;
+  padding: 2vmin;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+#game .main {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  background-color: gainsboro;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  overflow: hidden;
+  overflow-y: scroll;
+  box-shadow: 1px -2px 11px rgba(0, 0, 0, 0.75);
+}
+#game .main .row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+#game .main .row .slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #666;
+  border-right: 1px solid #666;
+  box-shadow: 1px -2px 11px rgba(0, 0, 0, 0.75);
+  background-image: url("../images/grass-block.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#game .main .row .slot .resident {
+  height: 50%;
+  width: 50%;
+  max-height: 50%;
+  max-width: 50%;
+  min-height: 50%;
+  min-width: 50%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#params {
+  width: 50%;
+  max-width: 320px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2vmin 5vmin 2vmin 2vmin;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  background-color: transparent;
+  border: 1px solid #666;
+  border-radius: 8px;
+  box-shadow: -1px 2px 6px #222;
+  transition: opacity 1s linear;
+}
+#params input,
+#params button {
+  max-width: calc(100% - 48px - 2px);
+  min-width: calc(100% - 48px - 2px);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1vmin;
+  margin: 1vmin 0;
+  font-variant: all-small-caps;
+  box-shadow: -1px 2px 6px #345;
+  font-size: large;
+  background: mintcream;
+}
+#params #inputValidationException {
+  width: 100%;
+  text-align: center;
+  color: linen;
+  font-weight: bold;
+  font-variant: all-small-caps;
+  min-height: 0;
+}
+#params label {
+  width: 48px;
+  max-width: 48px;
+  display: flex;
+  align-items: center;
+  font-size: larger;
+  text-shadow: rgba(90, 90, 120, 0.5);
+  text-decoration-style: wavy;
+  font-variant: all-small-caps;
+  color: lightgray;
+}
+
+.hide {
+  opacity: 0;
+}
+.show {
+  opacity: 1;
+}
